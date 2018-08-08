@@ -34,7 +34,7 @@ hashedPassword := hasher.String()
 ### Validate password
 
 ~~~go
-import "github.com/tomi77/go-passwd/passwd/validator"
+import "github.com/go-passwd/passwd/validator"
 
 passwordValidator := passwd.NewValidator(validator.MinLength(5), validator.MaxLength(10))
 err := passwordValidator.Validate(form.Password)
