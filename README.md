@@ -1,3 +1,6 @@
+---
+title: Password library for Go
+---
 # Password library for Go
 
 ## Installation
