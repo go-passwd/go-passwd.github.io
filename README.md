@@ -45,7 +45,7 @@ if err != nil {
 
 ### Generate password
 
-Use [randomstring](https://gopkg.in/randomstring.v1)
+Use [randomstring](randomstring.md)
 
 ## Validators
 
