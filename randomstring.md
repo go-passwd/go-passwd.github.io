@@ -5,7 +5,7 @@
 Generating a random 20-character string with lower letters, upper letters and digits:
 
 ~~~go
-import "gopkg.in/randomstring.v1"
+import "github.com/go-passwd/randomstring"
 
 s := randomstring.Generate(20)
 ~~~
@@ -13,7 +13,7 @@ s := randomstring.Generate(20)
 Generating a random 20-character string with lower letters:
 
 ~~~go
-import "gopkg.in/randomstring.v1"
+import "github.com/go-passwd/randomstring"
 
 s := randomstring.Generate(20, randomstring.LowerLetters)
 ~~~
