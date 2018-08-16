@@ -4,6 +4,8 @@
 import "github.com/go-passwd/randomstring"
 ~~~
 
+[Installation](randomstring.md#installation) | [Overview](randomstring.md#overview) | [API](randomstring.md#api)
+
 ## Installation
 
 ~~~sh
