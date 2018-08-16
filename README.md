@@ -2,9 +2,9 @@
 
 ## TOC
 
-* [random string generator](randomstring.md)
-* [password validation library](validator.md)
-* [password hasher library](hasher.md)
+* [go-passwd/randomstring](randomstring.md) random string generator
+* [go-passwd/validator](validator.md) password validation library
+* [go-passwd/hasher](hasher.md) password hasher library
 
 ## Installation
 
