@@ -1,5 +1,9 @@
 # Password library for Go
 
+## TOC
+
+* [random string generator](randomstring.md)
+
 ## Installation
 
 ~~~sh
