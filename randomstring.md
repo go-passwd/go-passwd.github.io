@@ -1,20 +1,28 @@
 # Go random string generator
 
-## Generate random string
+## Installation
+
+~~~sh
+go get -u github.com/go-passwd/randomstring
+~~~
+
+## Usage
+
+~~~go
+import "github.com/go-passwd/randomstring"
+~~~
+
+### Generate random string
 
 Generating a random 20-character string with lower letters, upper letters and digits:
 
 ~~~go
-import "github.com/go-passwd/randomstring"
-
 s := randomstring.Generate(20)
 ~~~
 
 Generating a random 20-character string with lower letters:
 
 ~~~go
-import "github.com/go-passwd/randomstring"
-
 s := randomstring.Generate(20, randomstring.LowerLetters)
 ~~~
 
