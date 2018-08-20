@@ -1,4 +1,8 @@
-# Password validation library for Go
+# package validator
+
+~~~go
+import "github.com/go-passwd/validator"
+~~~
 
 ## Installation
 
@@ -6,13 +10,11 @@
 go get -u github.com/go-passwd/validator
 ~~~
 
-## Usage
+## Overview
 
-~~~go
-import "github.com/go-passwd/validator"
-~~~
+Password validation library for Go
 
-### Validate password
+Validate password:
 
 ~~~go
 import "github.com/go-passwd/passwd/validator"
@@ -24,56 +26,108 @@ if err != nil {
 }
 ~~~
 
-## Validators
+## API
 
-### MinLength
+* [type ValidateFunc](validator.md#type-validatefunc)
+  * [func CommonPassword](validator.md#func-commonpassword)
+  * [func ContainsAtLeast](validator.md#func-containsatleast)
+  * [func MaxLength](validator.md#func-maxlength)
+  * [func MinLength](validator.md#func-minlength)
+  * [func Noop](validator.md#func-noop)
+  * [func Regex](validator.md#func-regex)
+  * [func Similarity](validator.md#func-similarity)
+* [type Validator](validator.md#type-validator)
+  * [func New](validator.md#func-new)
+  * [func (*Validator) Validate](validator.md#func-validator-validate)
 
-Check if password length is not lower that defined length.
-
-~~~go
-passwordValidator := validator.New(validator.MinLength(5))
-~~~
-
-### MaxLength
-
-Check if password length is not greater that defined length.
-
-~~~go
-passwordValidator := validator.New(validator.MaxLength(10))
-~~~
-
-### ContainsAtLeast
-
-Count occurrences of a chars and compares it with required value.
+### type ValidateFunc
 
 ~~~go
-passwordValidator := validator.New(validator.ContainsAtLeast("abcdefghijklmnopqrstuvwxyz", 5)
+type ValidateFunc func(password string) error
 ~~~
 
-### CommonPassword
+ValidateFunc defines a function to validate 
 
-Check if password is a common password.
-
-Common password list is based on list created by Mark Burnett: https://xato.net/passwords/more-top-worst-passwords/
+### func CommonPassword
 
 ~~~go
-passwordValidator := validator.New(validator.CommonPassword(nil))
+func CommonPassword(customError error) ValidateFunc
 ~~~
 
-### Regex
+CommonPassword returns ValidateFunc that validate whether the password is a common password.
 
-Check if password match regexp pattern.
+The password is rejected if it occurs in a provided list created by Mark Burnett: https://xato.net/passwords/more-top-worst-passwords/ 
+
+### func ContainsAtLeast
 
 ~~~go
-passwordValidator := validator.New(validator.Regex("^\\w+$", nil))
+func ContainsAtLeast(chars string, occurrences int, customError error) ValidateFunc
 ~~~
 
-### Similarity
+ContainsAtLeast returns a ValidateFunc that count occurrences of a chars and compares it with required value 
+ 
+### func MaxLength
 
-Check if password is sufficiently different from the attributes.
+~~~go
+func MaxLength(length int, customError error) ValidateFunc
+~~~
+
+MaxLength returns a ValidateFunc that check if password length is not greater that "length"
+
+### func MinLength
+
+~~~go
+func MinLength(length int, customError error) ValidateFunc
+~~~
+
+MinLength returns a ValidateFunc that check if password length is not lower that "length" 
+
+### func Noop
+
+~~~go
+func Noop(customError error) ValidateFunc
+~~~
+
+Noop returns a ValidateFunc that always return custom error
+
+### func Regex
+
+~~~go
+func Regex(pattern string, customError error) ValidateFunc
+~~~
+
+Regex returns ValidateFunc that check if password match regexp pattern 
+
+### func Similarity
+
+~~~go
+func Similarity(attributes []string, maxSimilarity *float64, customError error) ValidateFunc
+~~~
+
+Similarity returns ValidateFunc that validate whether the password is sufficiently different from the attributes
 
 Attributes can be: user login, email, first name, last name, …
 
+### type Validator
+
 ~~~go
-passwordValidator := validator.New(validator.Similarity([]string{"username", "username@example.com"}], nil, nil))
+type Validator []ValidateFunc
 ~~~
+
+Validator represents set of password validators
+
+### func New
+
+~~~go
+func New(vfunc ...ValidateFunc) *Validator
+~~~
+
+New return new instance of Validator
+
+### func (*Validator) Validate
+
+~~~go
+func (v *Validator) Validate(password string) error
+~~~
+
+Validate the password
