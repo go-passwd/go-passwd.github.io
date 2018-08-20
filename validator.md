@@ -4,6 +4,8 @@
 import "github.com/go-passwd/validator"
 ~~~
 
+[Installation](validator.md#installation) | [Overview](validator.md#overview) | [API](validator.md#api)
+
 ## Installation
 
 ~~~sh
