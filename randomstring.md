@@ -4,7 +4,7 @@
 import "github.com/go-passwd/randomstring"
 ~~~
 
-[Installation](randomstring.md#installation) | [Overview](randomstring.md#overview) | [API](randomstring.md#api)
+[Installation](randomstring.md#installation) | [Overview](randomstring.md#overview) | [API v1](randomstring.md#api-v1)
 
 ## Installation
 
@@ -26,7 +26,7 @@ Generating a random 20-character string with lower letters:
 s := randomstring.Generate(20, randomstring.LowerLetters)
 ~~~
 
-## API
+## API v1
 
 * [Constants](randomstring.md#constants)
 * [func Generate](randomstring.md#func-generate)
