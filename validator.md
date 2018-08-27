@@ -19,7 +19,7 @@ Password validation library for Go
 Validate password:
 
 ~~~go
-import "github.com/go-passwd/passwd/validator"
+import "github.com/go-passwd/validator"
 
 passwordValidator := validator.New(validator.MinLength(5), validator.MaxLength(10))
 err := passwordValidator.Validate(form.Password)
