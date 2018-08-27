@@ -38,6 +38,7 @@ if err != nil {
   * [func Noop](validator.md#func-noop)
   * [func Regex](validator.md#func-regex)
   * [func Similarity](validator.md#func-similarity)
+  * [func StartsWith](validator.md#func-startswith)
 * [type Validator](validator.md#type-validator)
   * [func New](validator.md#func-new)
   * [func (*Validator) Validate](validator.md#func-validator-validate)
@@ -109,6 +110,14 @@ func Similarity(attributes []string, maxSimilarity *float64, customError error) 
 Similarity returns ValidateFunc that validate whether the password is sufficiently different from the attributes
 
 Attributes can be: user login, email, first name, last name, …
+
+### func StartsWith
+
+~~~go
+func StartsWith(letters string, customError error) ValidateFunc
+~~~
+
+StartsWith returns ValidateFunc that validate whether the password is starts with one of letter
 
 ### type Validator
 
