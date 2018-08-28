@@ -33,6 +33,7 @@ if err != nil {
 * [type ValidateFunc](validator.md#type-validatefunc)
   * [func CommonPassword](validator.md#func-commonpassword)
   * [func ContainsAtLeast](validator.md#func-containsatleast)
+  * [func ContainsOnly](validator.md#func-containsonly)
   * [func MaxLength](validator.md#func-maxlength)
   * [func MinLength](validator.md#func-minlength)
   * [func Noop](validator.md#func-noop)
@@ -68,7 +69,15 @@ func ContainsAtLeast(chars string, occurrences int, customError error) ValidateF
 ~~~
 
 ContainsAtLeast returns a ValidateFunc that count occurrences of a chars and compares it with required value 
- 
+
+### func ContainsOnly
+
+~~~go
+func ContainsOnly(chars string, customError error) ValidateFunc
+~~~
+
+ContainsOnly returns a ValidateFunc that check if password contains only selected chars
+
 ### func MaxLength
 
 ~~~go
