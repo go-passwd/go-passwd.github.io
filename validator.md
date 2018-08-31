@@ -40,6 +40,7 @@ if err != nil {
   * [func Regex](validator.md#func-regex)
   * [func Similarity](validator.md#func-similarity)
   * [func StartsWith](validator.md#func-startswith)
+  * [func Unique](validator.md#func-unique)
 * [type Validator](validator.md#type-validator)
   * [func New](validator.md#func-new)
   * [func (*Validator) Validate](validator.md#func-validator-validate)
@@ -127,6 +128,14 @@ func StartsWith(letters string, customError error) ValidateFunc
 ~~~
 
 StartsWith returns ValidateFunc that validate whether the password is starts with one of letter
+
+### func Unique
+
+~~~go
+func Unique(customError error) ValidateFunc
+~~~
+
+Unique returns ValidateFunc that validate whether the password has only unique chars
 
 ### type Validator
 
