@@ -34,7 +34,7 @@ s := randomstring.Generate(20, randomstring.LowerLetters)
   * [func NewExcludeCharset](randomstring.md#func-newexcludecharset)
   * [func NewIncludeCharset](randomstring.md#func-newincludecharset)
 * [type GenerateRuleFunc](randomstring.md#type-generaterulefunc)
-  * [func NewSimpleGenerate](randomstring.md#func-newsimplegenerate)
+  * [func NewDefaultGenerate](randomstring.md#func-newdefaultgenerate)
 * [type Generator](randomstring.md#type-generator)
   * [func New](randomstring.md#func-new)
   * [func (*Generator) Generate](randomstring.md#func-generator-generate)
@@ -114,13 +114,13 @@ GenerateRuleFunc generates a new string based on: charset, length and output rul
 type GenerateRuleFunc func(charset string, length uint, outputRules []OutputRuleFunc) *string
 ~~~
 
-### func NewSimpleGenerate
+### func NewDefaultGenerate
 
 ~~~go
-func NewSimpleGenerate() GenerateRuleFunc
+func NewDefaultGenerate() GenerateRuleFunc
 ~~~
 
-NewSimpleGenerate returns a new generate rule func with simple random string generator
+NewDefaultGenerate returns a new generate rule func with default random string generator
 
 ### type Generator
 
